@@ -1,0 +1,206 @@
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the body to fill the viewport and center content */
+body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #FFC1CC 0%, #FF9A9E 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Container styling */
+.container {
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    padding: 20px;
+    max-width: 800px;
+}
+
+/* Heading styling */
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-family: 'Great Vibes', cursive;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    font-family: 'Be Vietnam Pro';
+}
+
+/* Gift box styling */
+.gift-box {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 30px;
+    cursor: pointer;
+    perspective: 600px;
+    transition: transform 0.5s;
+}
+
+.gift-box:hover {
+    transform: scale(1.05);
+}
+
+.box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #FF6F61, #FF8A75);
+    border-radius: 10px;
+    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.lid {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(145deg, #c75744, #8e2b22);
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    transform-origin: top;
+    transition: transform 1s;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.bow {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background: #fff;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.bow::before, .bow::after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 20px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bow::before {
+    top: -50%;
+}
+
+.bow::after {
+    bottom: -50%;
+}
+
+/* Message styling */
+#message {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #FF6F61;
+    padding: 30px;
+    border-radius: 15px;
+    animation: fadeIn 1s forwards;
+    font-size: 1.2em;
+}
+
+#message p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Fireworks button */
+#fireworksButton {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background: #FF6F61;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#fireworksButton:hover {
+    background: #FF8A75;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 1.2em;
+    }
+    .gift-box {
+        width: 120px;
+        height: 120px;
+    }
+    #message {
+        font-size: 1em;
+        padding: 20px;
+    }
+}
+
+/* Canvas styling for the animation */
+#animationCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Balloon styling */
+.balloon {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    background-color: red;
+    border-radius: 50% 50% 45% 45%;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background-color: #555;
+    transform: translateX(-50%);
+}
+
+/* Fireworks canvas styling */
+#fireworksCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
